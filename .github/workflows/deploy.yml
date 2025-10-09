@@ -1,0 +1,57 @@
+name: Deploy Next.js to Vercel
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Extract version from Git tag
+        id: version
+        run: |
+          VERSION=$(git describe --tags --abbrev=0 --always || echo "dev")
+          echo "NEXT_PUBLIC_APP_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "App Version: $VERSION"
+
+      - name: Inject version into .env.production
+        run: |
+          echo "NEXT_PUBLIC_APP_VERSION=${{ env.NEXT_PUBLIC_APP_VERSION }}" > .env.production
+          echo ".env.production content:"
+          cat .env.production
+
+      - name: Build Next.js app
+        run: npm run build
+        env:
+          NEXT_PUBLIC_APP_VERSION: ${{ env.NEXT_PUBLIC_APP_VERSION }}
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: >
+            --prod
+        env:
+          NEXT_PUBLIC_APP_VERSION: ${{ env.NEXT_PUBLIC_APP_VERSION }}
