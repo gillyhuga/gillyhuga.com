@@ -11,8 +11,7 @@ export default function HeroSection() {
         A software engineer mainly focused on web technologies.
       </p>
       <p className="text-gray-600 mx-auto max-w-2xl text-sm md:text-base">
-        Experienced Software Engineer with hands-on expertise in Computer Science. 
-        I possess a keen interest in tackling complex problems and crafting innovative solutions.
+       Experienced in Computer Science with hands-on expertise in web technologies, I’m driven by curiosity and a desire to turn complex problems into simple, elegant solutions.
       </p>
 
       {/* <div className="mt-8 flex justify-center">

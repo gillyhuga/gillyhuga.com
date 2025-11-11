@@ -21,9 +21,7 @@ export default function JourneySection({ children }: { children?: React.ReactNod
           </p>
 
           <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Today, I’m passionate about crafting clean, efficient, and scalable solutions.
-            Whether it’s architecting APIs, designing intuitive dashboards, or integrating
-            complex logistics systems — I enjoy turning ideas into impactful products.
+            Today, I focus on creating <strong>clean, efficient, and scalable applications.</strong> From architecting APIs to designing <strong>intuitive dashboards</strong> and integrating <strong>complex systems</strong>, I take pride in transforming ideas into impactful digital products.
           </p>
 
           {children}

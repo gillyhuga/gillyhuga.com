@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { FaBeer } from "react-icons/fa";
+import { User, Mail } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SectionWrapper } from "@/components/common/SectionWrapper";
 import { motion } from "framer-motion";
@@ -10,15 +10,28 @@ import JourneySection from "@/components/pages/home/JourneySection";
 import WakaTimeStats from "@/components/pages/home/WakaTimeStats";
 import Footer from "@/components/common/Footer";
 import { useWakaTimeData } from "@/hooks/useWakaTimeData";
+import AboutSection from "@/components/pages/home/AboutSection";
 
 export default function Home() {
   const { data, loading, error } = useWakaTimeData();
   const appVersion = process.env.NEXT_PUBLIC_APP_VERSION || "dev";
 
   const navItems = [
-    { name: "Home", link: "/", icon: <FaBeer className="h-4 w-4 text-neutral-500 dark:text-white" /> },
-    { name: "About", link: "/about", icon: <FaBeer className="h-4 w-4 text-neutral-500 dark:text-white" /> },
-    { name: "Contact", link: "/contact", icon: <FaBeer className="h-4 w-4 text-neutral-500 dark:text-white" /> },
+    { 
+      name: "Home", 
+      link: "/", 
+      icon: <User className="h-4 w-4 text-neutral-500 dark:text-white" /> 
+    },
+    { 
+      name: "About", 
+      link: "/about", 
+      icon: <User className="h-4 w-4 text-neutral-500 dark:text-white" /> 
+    },
+    { 
+      name: "Contact", 
+      link: "/contact", 
+      icon: <Mail className="h-4 w-4 text-neutral-500 dark:text-white" /> 
+    },
   ];
 
   return (
@@ -44,8 +57,9 @@ export default function Home() {
         </JourneySection>
       </SectionWrapper>
 
+      <AboutSection />     
+
       <Footer version={appVersion} />
     </div>
-    
   );
 }

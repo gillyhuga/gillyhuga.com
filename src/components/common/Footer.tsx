@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import PulseticBadge from "./PulseticBadge";
 
 interface FooterProps {
   version?: string;
@@ -20,11 +20,10 @@ export default function Footer({ version }: FooterProps) {
         </div>
       </div>
 
-      {version && (
-        <div className="mt-3 text-xs text-neutral-500 dark:text-neutral-500">
-         {version}
-        </div>
-      )}
+      <div className="mt-3 flex justify-center items-center gap-3 text-xs text-neutral-500 dark:text-neutral-500">
+        {version && <div>{version}</div>}
+        <PulseticBadge />
+      </div>
     </footer>
   );
 }
