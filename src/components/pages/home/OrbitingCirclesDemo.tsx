@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export function OrbitingCirclesDemo() {
     return (
-        <div className="relative flex h-[400px] w-full max-w-[32rem] items-center justify-center ">
+        <div className="relative flex h-[400px] w-full max-w-[30rem] items-center justify-center ">
             <Image
                 src="/sticker.png"
                 alt="Animoji Apple"

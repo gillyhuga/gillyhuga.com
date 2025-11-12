@@ -9,7 +9,7 @@ export default function Footer({ version }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full mt-16 border-t border-neutral-200 dark:border-neutral-700 py-6 text-center text-sm text-neutral-600 dark:text-neutral-400">
+    <footer className="w-full border-t border-neutral-200 dark:border-neutral-700 py-6 text-center text-sm text-neutral-600 dark:text-neutral-400">
       <div className="flex flex-col md:flex-row justify-center items-center gap-3">
         <div>
           © {currentYear}{" "}

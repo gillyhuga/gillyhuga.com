@@ -11,6 +11,7 @@ import WakaTimeStats from "@/components/pages/home/WakaTimeStats";
 import Footer from "@/components/common/Footer";
 import { useWakaTimeData } from "@/hooks/useWakaTimeData";
 import AboutSection from "@/components/pages/home/AboutSection";
+import { CollaborationFooter } from "@/components/pages/home/CollaborationFooter";
 
 export default function Home() {
   const { data, loading, error } = useWakaTimeData();
@@ -58,6 +59,7 @@ export default function Home() {
       </SectionWrapper>
 
       <AboutSection />     
+      <CollaborationFooter/>
 
       <Footer version={appVersion} />
     </div>

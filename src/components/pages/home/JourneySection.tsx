@@ -9,18 +9,18 @@ export default function JourneySection({ children }: { children?: React.ReactNod
           <OrbitingCirclesDemo />
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold dark:text-white">
+          <h2 className="text-2xl font-bold dark:text-white text-neutral-800" >
             My Journey as a Software Engineer 🚀
           </h2>
 
-          <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
             My tech journey began with a deep curiosity about how things work on the web.
             I started by building simple landing pages with <strong>HTML, CSS, and JavaScript</strong>,
             then expanded into frameworks like <strong>React.js</strong>, <strong>Angular.js</strong>  and <strong>Next.js</strong> to
             create dynamic and responsive user experiences.
           </p>
 
-          <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
             Today, I focus on creating <strong>clean, efficient, and scalable applications.</strong> From architecting APIs to designing <strong>intuitive dashboards</strong> and integrating <strong>complex systems</strong>, I take pride in transforming ideas into impactful digital products.
           </p>
 
