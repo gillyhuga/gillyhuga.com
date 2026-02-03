@@ -5,10 +5,10 @@ export default function JourneySection({ children }: { children?: React.ReactNod
   return (
     <div className="items-center justify-center pb-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-6xl">
-        <div className="flex flex-col items-center justify-center order-1 md:order-1">
+        <div className="flex flex-col items-center justify-center">
           <OrbitingCirclesDemo />
         </div>
-        <div className="flex flex-col gap-4 order-2 md:order-2">
+        <div className="flex flex-col gap-4">
           <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-neutral-800" >
             My Journey as a Software Engineer 🚀
           </h2>
