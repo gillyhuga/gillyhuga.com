@@ -34,19 +34,15 @@ export default function AboutSection() {
   return (
     <DotBackground>
       <section className="py-12">
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center px-4">
           <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-1 rounded-full">
             About me
           </span>
-          <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-neutral-800 dark:text-white">
-            I craft efficient, scalable, and user-focused
-            <br />
-            web & system solutions
+          <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-neutral-800 dark:text-white max-w-4xl mx-auto">
+            I craft efficient, scalable, and user-focused web & system solutions
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
-            I combine software engineering principles, system design, and teamwork
-            <br />
-            to build products that solve real-world problems 🐱
+          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            I combine software engineering principles, system design, and teamwork to build products that solve real-world problems 🐱
           </p>
         </div>
 
