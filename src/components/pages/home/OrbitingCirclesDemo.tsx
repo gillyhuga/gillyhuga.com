@@ -3,20 +3,20 @@ import Image from 'next/image';
 
 export function OrbitingCirclesDemo() {
     return (
-        <div className="relative flex h-[400px] w-full max-w-[30rem] items-center justify-center ">
+        <div className="relative flex h-[300px] md:h-[400px] w-full max-w-[20rem] md:max-w-[30rem] items-center justify-center mx-auto">
             <Image
                 src="/sticker.png"
                 alt="Animoji Apple"
                 height={200}
                 width={200}
-                className="z-10"
+                className="z-10 w-[120px] h-[120px] md:w-[200px] md:h-[200px]"
             />
 
             <OrbitingCircles
                 className="h-[30px] w-[30px] border-none bg-transparent"
                 duration={20}
                 delay={10}
-                radius={120}
+                radius={80}
             >
                 <Icons.nodeJs />
             </OrbitingCircles>
@@ -24,14 +24,14 @@ export function OrbitingCirclesDemo() {
                 className="h-[30px] w-[30px] border-none bg-transparent"
                 duration={20}
                 delay={20}
-                radius={140}
+                radius={95}
             >
                 <Icons.nextJs />
             </OrbitingCircles>
 
             <OrbitingCircles
                 className="h-[50px] w-[50px] border-none bg-transparent"
-                radius={160}
+                radius={110}
                 duration={20}
                 reverse
             >
@@ -39,7 +39,7 @@ export function OrbitingCirclesDemo() {
             </OrbitingCircles>
             <OrbitingCircles
                 className="h-[50px] w-[50px] border-none bg-transparent"
-                radius={180}
+                radius={125}
                 duration={20}
                 delay={20}
                 reverse
@@ -48,7 +48,7 @@ export function OrbitingCirclesDemo() {
             </OrbitingCircles>
             <OrbitingCircles
                 className="h-[30px] w-[30px] border-none bg-transparent"
-                radius={200}
+                radius={140}
                 duration={20}
                 delay={5}
                 reverse
