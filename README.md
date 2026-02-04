@@ -20,6 +20,40 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## PWA Support
+
+This application is configured as a Progressive Web App (PWA) with the following features:
+
+- **Installable**: Users can install the app on their devices
+- **Offline Support**: Service worker caching for offline functionality
+- **App-like Experience**: Runs in standalone mode without browser UI
+- **Multiple Icon Sizes**: Optimized icons for various devices (72x72 to 512x512)
+- **Apple Touch Icon**: Support for iOS devices
+
+### PWA Configuration
+
+The PWA is configured using [next-pwa](https://github.com/shadowwalker/next-pwa):
+- Service worker is automatically generated during production builds
+- Service worker is disabled in development mode
+- Manifest file is located at `/public/manifest.json`
+- Icons are located in the `/public` directory
+
+### Testing PWA Locally
+
+To test PWA features locally:
+
+1. Build the production version:
+   ```bash
+   npm run build -- --webpack
+   npm start
+   ```
+
+2. Open Chrome DevTools > Application > Service Workers to verify the service worker is registered
+3. Check the Manifest tab to verify the web app manifest is loaded correctly
+4. Use Lighthouse to audit PWA compliance
+
+Note: PWA features only work in production builds, not in development mode.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
