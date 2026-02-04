@@ -2,7 +2,7 @@ import withPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Add an empty turbopack config to acknowledge we're using Turbopack
+  // Empty turbopack config acknowledges we're aware of Turbopack but using webpack for next-pwa compatibility
   turbopack: {}
 };
 
