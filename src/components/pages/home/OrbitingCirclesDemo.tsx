@@ -9,11 +9,12 @@ export function OrbitingCirclesDemo() {
                 alt="Animoji Apple"
                 height={200}
                 width={200}
-                className="z-10 w-[120px] h-[120px] md:w-[200px] md:h-[200px]"
+                className="z-10 w-[120px] h-[120px] md:w-[160px] md:h-[160px]"
             />
 
+            {/* Inner Circles */}
             <OrbitingCircles
-                className="h-[30px] w-[30px] border-none bg-transparent"
+                className="h-[30px] w-[30px] md:h-[35px] md:w-[35px] border-none bg-transparent"
                 duration={20}
                 delay={10}
                 radius={80}
@@ -21,7 +22,7 @@ export function OrbitingCirclesDemo() {
                 <Icons.nodeJs />
             </OrbitingCircles>
             <OrbitingCircles
-                className="h-[30px] w-[30px] border-none bg-transparent"
+                className="h-[30px] w-[30px] md:h-[35px] md:w-[35px] border-none bg-transparent"
                 duration={20}
                 delay={20}
                 radius={95}
@@ -29,17 +30,18 @@ export function OrbitingCirclesDemo() {
                 <Icons.nextJs />
             </OrbitingCircles>
 
+            {/* Outer Circles */}
             <OrbitingCircles
-                className="h-[50px] w-[50px] border-none bg-transparent"
-                radius={110}
+                className="h-[50px] w-[50px] md:h-[60px] md:w-[60px] border-none bg-transparent"
+                radius={120}
                 duration={20}
                 reverse
             >
                 <Icons.reactJs />
             </OrbitingCircles>
             <OrbitingCircles
-                className="h-[50px] w-[50px] border-none bg-transparent"
-                radius={125}
+                className="h-[50px] w-[50px] md:h-[60px] md:w-[60px] border-none bg-transparent"
+                radius={140}
                 duration={20}
                 delay={20}
                 reverse
@@ -47,8 +49,8 @@ export function OrbitingCirclesDemo() {
                 <Icons.mongoDb />
             </OrbitingCircles>
             <OrbitingCircles
-                className="h-[30px] w-[30px] border-none bg-transparent"
-                radius={140}
+                className="h-[30px] w-[30px] md:h-[40px] md:w-[40px] border-none bg-transparent"
+                radius={160}
                 duration={20}
                 delay={5}
                 reverse

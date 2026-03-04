@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import PulseticBadge from "./PulseticBadge";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface FooterProps {
   version?: string;
@@ -7,6 +9,7 @@ interface FooterProps {
 
 export default function Footer({ version }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="w-full border-t border-neutral-200 dark:border-neutral-700 py-6 text-center text-sm text-neutral-600 dark:text-neutral-400">
@@ -16,7 +19,7 @@ export default function Footer({ version }: FooterProps) {
           <span className="font-semibold text-neutral-800 dark:text-neutral-100">
             Gilly Huga Anargya
           </span>
-          . All rights reserved.
+          . {t.footer.rights}
         </div>
       </div>
 

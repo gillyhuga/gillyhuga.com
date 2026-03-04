@@ -1,4 +1,6 @@
+"use client";
 import { cn } from "@/utils/cn";
+import { useEffect, useState } from "react";
 
 export default function OrbitingCircles({
   className,
@@ -17,6 +19,22 @@ export default function OrbitingCircles({
   radius?: number;
   path?: boolean;
 }) {
+  const [currentRadius, setCurrentRadius] = useState(radius);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      if (window.innerWidth >= 768) {
+        setCurrentRadius(radius * 1.2); // Increase radius by 20% on md+ screens
+      } else {
+        setCurrentRadius(radius);
+      }
+    };
+
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, [radius]);
+
   return (
     <>
       {path && (
@@ -29,7 +47,7 @@ export default function OrbitingCircles({
             className="stroke-black/10 stroke-1 dark:stroke-white/10"
             cx="50%"
             cy="50%"
-            r={radius}
+            r={currentRadius}
             fill="none"
             strokeDasharray={"4 4"}
           />
@@ -40,7 +58,7 @@ export default function OrbitingCircles({
         style={
           {
             "--duration": duration,
-            "--radius": radius,
+            "--radius": currentRadius,
             "--delay": -delay,
           } as React.CSSProperties
         }

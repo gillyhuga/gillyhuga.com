@@ -1,48 +1,35 @@
+"use client";
 import React from "react";
 import { cn } from "@/utils/cn";
 import { Code2, Workflow, Users, Rocket } from "lucide-react";
 import { DotBackground } from "@/components/ui/dot-backgorund";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutSection() {
-  const features = [
-    {
-      title: "2+ years in software engineering",
-      description:
-        "Designing and developing scalable web applications using modern frameworks like React.js, Next.js, Node.js, and Laravel.",
-      icon: <Code2 className="w-8 h-8" />,
-    },
-    {
-      title: "Full-stack problem solving",
-      description:
-        "Experienced in both frontend and backend — transforming business logic into efficient, maintainable code that drives impact.",
-      icon: <Workflow className="w-8 h-8" />,
-    },
-    {
-      title: "Collaboration & growth",
-      description:
-        "Thrives in agile teams — code reviews, pairing sessions, and open discussions that elevate quality and team synergy.",
-      icon: <Users className="w-8 h-8" />,
-    },
-    {
-      title: "Continuous learning",
-      description:
-        "Passionate about exploring new technologies, optimizing systems, and sharing knowledge to drive innovation.",
-      icon: <Rocket className="w-8 h-8" />,
-    },
-  ];
+  const { t } = useLanguage();
+  const features = t.about.features.map((f, i) => ({
+    title: f.title,
+    description: f.description,
+    icon: [
+      <Code2 key={0} className="w-8 h-8" />,
+      <Workflow key={1} className="w-8 h-8" />,
+      <Users key={2} className="w-8 h-8" />,
+      <Rocket key={3} className="w-8 h-8" />
+    ][i],
+  }));
 
   return (
     <DotBackground>
       <section className="py-12">
         <div className="mb-12 text-center px-4">
           <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-1 rounded-full">
-            About me
+            {t.about.badge}
           </span>
-          <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-neutral-800 dark:text-white max-w-4xl mx-auto">
-            I craft efficient, scalable, and user-focused web & system solutions
+          <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-neutral-800 dark:text-neutral-100 max-w-4xl mx-auto">
+            {t.about.heading}
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I combine software engineering principles, system design, and teamwork to build products that solve real-world problems 🐱
+          <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            {t.about.subheading}
           </p>
         </div>
 
@@ -81,7 +68,7 @@ const Feature = ({
       {index >= 4 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
-      <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
+      <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-300">
         {icon}
       </div>
       <div className="flex-grow justify-between text-lg font-bold mb-2 relative z-10 px-10">

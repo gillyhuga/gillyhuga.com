@@ -1,14 +1,14 @@
-import withPWA from 'next-pwa';
+import withPWAInit from "@ducanh2912/next-pwa";
+
+const withPWA = withPWAInit({
+  dest: "public",
+  cacheOnFrontEndNav: false,
+  aggressiveFrontEndNavCaching: false,
+  reloadOnOnline: true,
+  disable: process.env.NODE_ENV === "development",
+});
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Empty turbopack config acknowledges we're aware of Turbopack but using webpack for next-pwa compatibility
-  turbopack: {}
-};
+const nextConfig = {};
 
-export default withPWA({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development'
-})(nextConfig);
+export default withPWA(nextConfig);

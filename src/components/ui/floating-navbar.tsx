@@ -8,6 +8,9 @@ import {
 } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useLanguage } from "@/context/LanguageContext";
+import { Sun, Moon } from "lucide-react";
 
 export const FloatingNav = ({
   navItems,
@@ -22,6 +25,13 @@ export const FloatingNav = ({
 }) => {
 
   const [visible] = useState(true);
+  const { theme, setTheme } = useTheme();
+  const { locale, toggleLocale } = useLanguage();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
 
   return (
@@ -55,10 +65,27 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button>
+        <div className="flex items-center space-x-1 pl-2 ml-2 sm:pl-4 sm:ml-4 sm:border-l border-neutral-200 dark:border-white/[0.2]">
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-300"
+            aria-label="Toggle theme"
+          >
+            {mounted ? (
+              theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
+            ) : (
+              <div className="h-4 w-4" />
+            )}
+          </button>
+
+          <button
+            onClick={toggleLocale}
+            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-base font-medium text-neutral-600 dark:text-neutral-300"
+            aria-label="Toggle language"
+          >
+            {mounted ? (locale === "en" ? "🇬🇧" : "🇮🇩") : <div className="h-4 w-4" />}
+          </button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

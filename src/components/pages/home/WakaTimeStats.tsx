@@ -3,6 +3,7 @@ import ShineBorder from "@/components/ui/shine-border";
 import NumberTicker from "@/components/ui/number-ticker";
 import { secondsToHours } from "@/utils/secondsToHours";
 import { formatDate } from "@/utils/formatDate";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface WakaTimeStatsProps {
     data?: any;
@@ -11,6 +12,7 @@ interface WakaTimeStatsProps {
 }
 
 export default function WakaTimeStats({ data, loading, error }: WakaTimeStatsProps) {
+    const { t } = useLanguage();
     if (loading) {
         return (
             <div className="flex flex-col gap-3 w-full animate-pulse">
@@ -28,10 +30,10 @@ export default function WakaTimeStats({ data, loading, error }: WakaTimeStatsPro
             <a href="https://wakatime.com/@gillyhuga" target="_blank" rel="noopener noreferrer">
                 <ShineBorder className="text-1xl font-bold capitalize" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
                     <p className="whitespace-pre-wrap font-medium tracking-tighter text-black dark:text-white">
-                        Total Coding Time: <NumberTicker value={secondsToHours(data.grand_total?.total_seconds)} />+ Hours
+                        {t.wakatime.totalCoding} <NumberTicker value={secondsToHours(data.grand_total?.total_seconds)} />{t.wakatime.hours}
                     </p>
                     <p className="text-xs font-light text-black dark:text-white">
-                        Since {data.range?.start ? formatDate(data.range.start) : "N/A"}
+                        {t.wakatime.since} {data.range?.start ? formatDate(data.range.start) : "N/A"}
                     </p>
                 </ShineBorder>
             </a>
@@ -39,7 +41,7 @@ export default function WakaTimeStats({ data, loading, error }: WakaTimeStatsPro
             <a href="https://wakatime.com/@gillyhuga" target="_blank" rel="noopener noreferrer">
                 <ShineBorder className="text-center text-1xl font-bold capitalize" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
                     <p className="whitespace-pre-wrap font-medium tracking-tighter text-black dark:text-white">
-                        Daily Average: <NumberTicker value={secondsToHours(data.grand_total?.daily_average)} />+ Hours/day
+                        {t.wakatime.dailyAverage} <NumberTicker value={secondsToHours(data.grand_total?.daily_average)} />{t.wakatime.hoursPerDay}
                     </p>
                 </ShineBorder>
             </a>
