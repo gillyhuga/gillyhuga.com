@@ -6,13 +6,13 @@ import Providers from "@/components/common/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gilly Huga Anargya",
+  title: "Gilly Huga Anargya - Software Engineer",
   description: "Personal website of Gilly Huga Anargya, a passionate Software Engineer.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Gilly Huga"
+    title: "Gilly Huga Anargya"
   },
   icons: {
     icon: [
