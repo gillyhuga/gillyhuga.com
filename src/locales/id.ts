@@ -4,7 +4,7 @@ const id: Translations = {
     nav: {
         home: "Beranda",
         about: "Tentang",
-        blog: "Blog",
+        projects: "Proyek",
     },
     hero: {
         tagline: "Software engineer yang berfokus pada teknologi web.",

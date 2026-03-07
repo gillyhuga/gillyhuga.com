@@ -13,10 +13,14 @@ import { AnimatePresence } from "framer-motion";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { X, ExternalLink } from "lucide-react";
 
-export function ProjectsSection() {
+export function ProjectsSection({ onModalStateChange }: { onModalStateChange?: (isOpen: boolean) => void }) {
     const { t } = useLanguage();
     const { data: projects, loading } = useProjects();
     const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
+
+    React.useEffect(() => {
+        onModalStateChange?.(!!selectedProject);
+    }, [selectedProject, onModalStateChange]);
     const modalRef = React.useRef<HTMLDivElement>(null);
 
     useOutsideClick(modalRef, () => setSelectedProject(null));
@@ -109,32 +113,29 @@ export function ProjectsSection() {
                             return projects.map((project, i) => {
                                 const isWide = wideIndices.includes(i);
                                 return (
-                                    <div
+                                    <BentoGridItem
                                         key={project.id}
+                                        title={project.name}
+                                        description={
+                                            <div className="flex flex-col gap-2">
+                                                <p className="text-sm line-clamp-2">{project.description}</p>
+                                                <div className="flex flex-wrap gap-1 mt-2">
+                                                    {project.tags.map(tag => (
+                                                        <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 whitespace-nowrap">
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        }
+                                        header={<HeaderImage src={project.image} alt={project.name} isWide={isWide} />}
                                         className={cn(
+                                            "h-full",
                                             "cursor-pointer",
                                             isWide ? "md:col-span-2" : "md:col-span-1"
                                         )}
                                         onClick={() => setSelectedProject(project)}
-                                    >
-                                        <BentoGridItem
-                                            title={project.name}
-                                            description={
-                                                <div className="flex flex-col gap-2">
-                                                    <p className="text-sm line-clamp-2">{project.description}</p>
-                                                    <div className="flex flex-wrap gap-1 mt-2">
-                                                        {project.tags.map(tag => (
-                                                            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 whitespace-nowrap">
-                                                                {tag}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            }
-                                            header={<HeaderImage src={project.image} alt={project.name} isWide={isWide} />}
-                                            className="h-full"
-                                        />
-                                    </div>
+                                    />
                                 );
                             });
                         })()

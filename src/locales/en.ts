@@ -2,7 +2,7 @@ const en = {
     nav: {
         home: "Home",
         about: "About",
-        blog: "Blog",
+        projects: "Projects",
     },
     hero: {
         tagline: "A software engineer mainly focused on web technologies.",

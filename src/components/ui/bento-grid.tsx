@@ -27,15 +27,20 @@ export const BentoGridItem = ({
   description,
   header,
   icon,
+  onClick,
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
+  onClick?: () => void;
 }) => {
   return (
-    <div className={cn("relative h-full rounded-2xl border p-2 dark:border-gray-800 border-gray-200 group/bento", className)}>
+    <div
+      onClick={onClick}
+      className={cn("relative h-full rounded-2xl border p-2 dark:border-gray-800 border-gray-200 bg-white dark:bg-black group/bento", className)}
+    >
       <GlowingEffect
         spread={40}
         proximity={64}

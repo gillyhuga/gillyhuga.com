@@ -15,6 +15,7 @@ import { Sun, Moon } from "lucide-react";
 export const FloatingNav = ({
   navItems,
   className,
+  isHidden,
 }: {
   navItems: {
     name: string;
@@ -22,8 +23,8 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
+  isHidden?: boolean;
 }) => {
-
   const [visible] = useState(true);
   const { theme, setTheme } = useTheme();
   const { locale, toggleLocale } = useLanguage();
@@ -42,8 +43,8 @@ export const FloatingNav = ({
           y: -100,
         }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          y: visible && !isHidden ? 0 : -100,
+          opacity: visible && !isHidden ? 1 : 0,
         }}
         transition={{
           duration: 0.2,
@@ -53,18 +54,34 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
-          <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
-        ))}
+        {navItems.map((navItem: any, idx: number) => {
+          const isInternal = navItem.link.startsWith("#");
+
+          const handleScroll = (e: React.MouseEvent) => {
+            if (isInternal) {
+              e.preventDefault();
+              const targetId = navItem.link.replace("#", "");
+              const element = document.getElementById(targetId);
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          };
+
+          return (
+            <Link
+              key={`link=${idx}`}
+              href={navItem.link}
+              onClick={handleScroll}
+              className={cn(
+                "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 cursor-pointer"
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="hidden sm:block text-sm font-medium">{navItem.name}</span>
+            </Link>
+          );
+        })}
         <div className="flex items-center space-x-1 pl-2 ml-2 sm:pl-4 sm:ml-4 sm:border-l border-neutral-200 dark:border-white/[0.2]">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
