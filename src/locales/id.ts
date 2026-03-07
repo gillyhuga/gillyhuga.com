@@ -9,20 +9,20 @@ const id: Translations = {
     hero: {
         tagline: "Software engineer yang berfokus pada teknologi web.",
         description:
-            "Berpengalaman di bidang Ilmu Komputer dengan keahlian nyata di teknologi web, saya didorong oleh rasa ingin tahu dan keinginan untuk mengubah masalah kompleks menjadi solusi yang sederhana dan elegan.",
+            "Berpengalaman di bidang Ilmu Komputer dengan keahlian nyata di teknologi web, saya didorong oleh rasa ingin tahu dan keinginan untuk mengubah masalah kompleks menjadi solusi yang sederhana.",
     },
     journey: {
-        title: "Perjalanan Saya sebagai Software Engineer 🚀",
+        title: "Di Balik Baris Kode 🚀",
         paragraph1:
-            "Perjalanan teknologi saya dimulai dengan rasa ingin tahu yang dalam tentang cara kerja web. Saya mulai dengan membangun halaman sederhana menggunakan HTML, CSS, dan JavaScript, lalu berkembang ke framework seperti React.js, Angular.js, dan Next.js.",
+            "Saya senang mengeksplorasi segala hal yang berkaitan dengan teknologi. Selama masa kuliah, saya bergabung dengan banyak komunitas dan organisasi untuk memperluas pengetahuan saya, termasuk menjadi asisten laboratorium Informatika. Saya juga aktif mengikuti berbagai kompetisi seperti Competitive Programming",
         paragraph2:
-            "Kini, saya fokus membangun aplikasi yang bersih, efisien, dan skalabel. Dari merancang API hingga mendesain dashboard intuitif dan mengintegrasikan sistem kompleks, saya bangga mengubah ide menjadi produk digital yang berdampak.",
+            "Saat ini, saya fokus membangun aplikasi yang bersih dan skalabel. Saya bangga dapat mengubah ide menjadi produk digital yang berdampak dan memecahkan masalah nyata.",
     },
     about: {
         badge: "Tentang saya",
-        heading: "Saya membangun solusi web & sistem yang efisien, skalabel, dan berfokus pada pengguna",
+        heading: "Membangun solusi web & sistem yang efisien, skalabel, dan berfokus pada pengguna",
         subheading:
-            "Saya menggabungkan prinsip rekayasa perangkat lunak, desain sistem, dan kerja tim untuk membangun produk yang memecahkan masalah nyata 🐱",
+            "Menggabungkan prinsip rekayasa perangkat lunak, desain sistem, dan kerja tim untuk membangun produk yang memecahkan masalah nyata 🐱",
         features: [
             {
                 title: "2+ tahun di rekayasa perangkat lunak",
@@ -47,7 +47,7 @@ const id: Translations = {
         ],
     },
     collaboration: {
-        heading: "Mari kita bangun sesuatu yang",
+        heading: "Yuk kita bangun sesuatu yang",
         flipWords: ["berdampak", "skalabel", "kreatif", "bermakna"],
         together: "bersama ✨",
         subheading: "Mau ngopi sambil coding bareng? ☕👨‍💻",
@@ -59,6 +59,33 @@ const id: Translations = {
         since: "Sejak",
         dailyAverage: "Rata-rata Harian:",
         hoursPerDay: "+ Jam/hari",
+    },
+    projects: {
+        badge: "Karya Terbaru",
+        heading: "Proyek Pilihan",
+        subheading: "Koleksi sistem dan aplikasi yang saya bangun atau berkontribusi di dalamnya selama perjalanan saya.",
+        list: [
+            {
+                title: "Platform Web E-Commerce",
+                description: "Mengembangkan fitur skalabel dan mengoptimalkan performa untuk jutaan pengguna.",
+            },
+            {
+                title: "Dashboard Finansial",
+                description: "Sistem analitik dan pelaporan interaktif untuk manajemen data keuangan.",
+            },
+            {
+                title: "Generator Gambar AI",
+                description: "Mengintegrasikan model difusi yang kuat ke dalam antarmuka web yang ramah pengguna.",
+            },
+            {
+                title: "Aplikasi Chat Real-time",
+                description: "Membangun sistem komunikasi latensi rendah menggunakan WebSockets dan Node.js.",
+            },
+            {
+                title: "Website Portofolio",
+                description: "Website ini sendiri—dibangun dengan Next.js, Framer Motion, dan prinsip modern UI/UX.",
+            },
+        ],
     },
     footer: {
         rights: "Hak cipta dilindungi.",

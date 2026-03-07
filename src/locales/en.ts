@@ -7,14 +7,14 @@ const en = {
     hero: {
         tagline: "A software engineer mainly focused on web technologies.",
         description:
-            "Experienced in Computer Science with hands-on expertise in web technologies, I'm driven by curiosity and a desire to turn complex problems into simple, elegant solutions.",
+            "Experienced in Computer Science with hands-on expertise in web technologies, I'm driven by curiosity and a desire to turn complex problems into simple solutions.",
     },
     journey: {
-        title: "My Journey as a Software Engineer 🚀",
+        title: "Beyond the Codebase 🚀",
         paragraph1:
-            "My tech journey began with a deep curiosity about how things work on the web. I started by building simple landing pages with HTML, CSS, and JavaScript, then expanded into frameworks like React.js, Angular.js and Next.js to create dynamic and responsive user experiences.",
+            "I love exploring everything related to technology. During my college years, I joined many communities and organizations to expand my knowledge, including serving as a laboratory assistant Informatics. I also actively participated in various competitions such as Competitive Programming",
         paragraph2:
-            "Today, I focus on creating clean, efficient, and scalable applications. From architecting APIs to designing intuitive dashboards and integrating complex systems, I take pride in transforming ideas into impactful digital products.",
+            "Today, I focus on creating clean and scalable applications. I take pride in transforming ideas into impactful digital products that solve real-world problems.",
     },
     about: {
         badge: "About me",
@@ -57,6 +57,33 @@ const en = {
         since: "Since",
         dailyAverage: "Daily Average:",
         hoursPerDay: "+ Hours/day",
+    },
+    projects: {
+        badge: "Recent Work",
+        heading: "Featured Projects",
+        subheading: "A collection of systems and applications I've built or contributed to during my journey.",
+        list: [
+            {
+                title: "E-Commerce Web Platform",
+                description: "Developing scalable features and optimizing performance for millions of users.",
+            },
+            {
+                title: "Financial Dashboard",
+                description: "Interactive analytics and reporting system for financial data management.",
+            },
+            {
+                title: "AI Image Generator",
+                description: "Integrating powerful diffusion models into a user-friendly web interface.",
+            },
+            {
+                title: "Real-time Chat App",
+                description: "Building low-latency communication systems using WebSockets and Node.js.",
+            },
+            {
+                title: "Portfolio Website",
+                description: "This very website—built with Next.js, Framer Motion, and modern UI/UX principles.",
+            },
+        ],
     },
     footer: {
         rights: "All rights reserved.",

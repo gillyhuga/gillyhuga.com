@@ -5,38 +5,46 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import Link from "next/link";
 import { Home, ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { CanvasText } from "@/components/ui/canvas-text";
 
 export default function NotFound() {
     const { t } = useLanguage();
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
     return (
         <AuroraBackground>
-            <div className="relative flex flex-col items-center justify-center min-h-screen w-full text-center px-4">
-                {/* Glitchy 404 number */}
+            <div className="relative flex flex-col items-center justify-center min-h-screen w-full text-center px-4 overflow-hidden">
+                {/* Modern Canvas 404 */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative"
                 >
-                    <span
-                        className="text-[10rem] md:text-[16rem] font-black leading-none tracking-tighter
-              bg-clip-text text-transparent
-              bg-gradient-to-br from-blue-400 via-indigo-400 to-violet-500
-              dark:from-blue-300 dark:via-indigo-300 dark:to-violet-400
-              select-none"
-                    >
-                        404
-                    </span>
-                    {/* Subtle glow behind the number */}
-                    <span
-                        aria-hidden
-                        className="absolute inset-0 text-[10rem] md:text-[16rem] font-black leading-none tracking-tighter
-              bg-clip-text text-transparent
-              bg-gradient-to-br from-blue-400 via-indigo-400 to-violet-500
-              blur-2xl opacity-30 select-none"
-                    >
-                        404
-                    </span>
+                    <CanvasText
+                        text="404"
+                        className="text-[10rem] md:text-[16rem] font-black leading-none tracking-tighter"
+                        backgroundClassName="bg-white dark:bg-black"
+                        colors={[
+                            "#3b82f6", // blue-500
+                            "#a5b4fc", // indigo-300
+                            "#93c5fd", // blue-300
+                            "#ddd6fe", // violet-200
+                            "#60a5fa", // blue-400
+                        ]}
+                        lineGap={6}
+                        animationDuration={8}
+                        curveIntensity={40}
+                    />
+
+                    {/* Subtle outer glow */}
+                    <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full z-[-1]" />
                 </motion.div>
 
                 {/* Message */}
@@ -44,7 +52,7 @@ export default function NotFound() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-3 mt-2"
+                    className="flex flex-col items-center gap-3 mt-4"
                 >
                     <h1 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100">
                         {t.notFound.title}
